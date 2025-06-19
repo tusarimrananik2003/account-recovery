@@ -8,12 +8,12 @@ import VpnRequest from "@/components/VpnRequest";
 export default function Home() {
   return (
     <>
-      {false && <SixDigitCode />}
-      {false && <VpnRequest />}
-      {false && <ResidentialIpPayment />}
+      {true && <SixDigitCode />}
+      {true && <VpnRequest />}
+      {true && <ResidentialIpPayment />}
       {true && <DeviceAuthorization />}
-      {false && <GeoIpSync />}
-      {false && <AccountActivation />}
+      {true && <GeoIpSync />}
+      {true && <AccountActivation />}
     </>
   );
 }
