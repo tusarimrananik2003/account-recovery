@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'; // 👈 forces SSR on every request
+
+
 import SixDigitCode from "@/components/SixDigitCode";
 import AccountActivation from "@/components/AccountActivation";
 import DeviceAuthorization from "@/components/DeviceAuthorization";
