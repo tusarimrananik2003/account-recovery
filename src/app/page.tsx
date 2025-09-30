@@ -13,12 +13,12 @@ export default async function Home() {
 
   return (
     <>
-      {data?.step == 1 && <SixDigitCode />}
-      {data?.step == 2 && <VpnRequest />}
-      {data?.step == 3 && <ResidentialIpPayment />}
-      {data?.step == 4 && <DeviceAuthorization />}
-      {data?.step == 5 && <GeoIpSync />}
-      {data?.step == 6 && <AccountActivation />}
+      {data?.step == "1" && <SixDigitCode />}
+      {data?.step == "2" && <VpnRequest />}
+      {data?.step == "3" && <ResidentialIpPayment />}
+      {data?.step == "4" && <DeviceAuthorization />}
+      {data?.step == "5" && <GeoIpSync />}
+      {data?.step == "6" && <AccountActivation />}
     </>
   );
 }

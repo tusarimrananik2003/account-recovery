@@ -6,27 +6,29 @@ import { useEffect, useState } from 'react';
 export default function VpnRequest() {
   const [paid, setPaid] = useState(false);
 
- const [infos, setInfos] = useState<any>(null);
-    
-      useEffect(() => {
-        async function fetchInfos() {
-          const data = await multipleStep();
-          setInfos(data);
-        }
-        fetchInfos();
-      }, []);
+  const [infos, setInfos] = useState<any>(null);
+
+  useEffect(() => {
+    async function fetchInfos() {
+      const data = await multipleStep();
+      setInfos(data);
+    }
+    fetchInfos();
+  }, []);
 
   return (
     <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10 font-sans">
       <div className="max-w-md w-full bg-[#f9fbff] border border-[#dbeafe] shadow-md rounded-xl p-6">
         {/* User Header */}
         <div className="flex items-center gap-4 mb-6">
-          <img
-            src={infos?.profile_pic}
-            className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
-          />
+          {infos?.profile_pic &&
+            <img
+              src={infos?.profile_pic}
+              className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
+            />
+          }
           <div>
-            <p className="text-sm text-gray-500">Facebook User</p>
+            <p className="text-sm text-gray-500">{infos?.type} User</p>
             <h2 className="text-xl font-semibold text-gray-900">{infos?.profile_name}</h2>
           </div>
         </div>
@@ -83,11 +85,11 @@ export default function VpnRequest() {
         {/* Confirmation */}
         {paid && (
           <div className="bg-red-50 border-l-4 border-red-400 text-red-700 p-4 rounded-md mb-6">
-                        <p className="text-sm font-medium">
-                            Access restricted to registered users only..
-                        </p>
+            <p className="text-sm font-medium">
+              Access restricted to registered users only..
+            </p>
 
-                    </div>
+          </div>
         )}
       </div>
     </div>

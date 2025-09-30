@@ -14,10 +14,11 @@ model Browsers {
 
 model MultipleStep {
   id           Int     @id @default(autoincrement())
-  step         Int?
-  payment      String?
+  step         String
+  payment      String
   profile_pic  String?
   profile_name String?
+  type         String
 }
 
 model User {

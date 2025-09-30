@@ -21,12 +21,14 @@ export default function ResidentialIpPayment() {
       <div className="max-w-md w-full bg-[#f9fbff] border border-[#dbeafe] shadow-md rounded-xl p-6">
         {/* User Header */}
         <div className="flex items-center gap-4 mb-6">
-          <img
-            src={infos?.profile_pic}
-            className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
-          />
+           {infos?.profile_pic &&
+            <img
+              src={infos?.profile_pic}
+              className="w-14 h-14 rounded-full border-4 border-[#1877f2] object-cover"
+            />
+          }
           <div>
-            <p className="text-sm text-gray-500">Facebook User</p>
+            <p className="text-sm text-gray-500">{infos?.type} User</p>
             <h2 className="text-xl font-semibold text-gray-900">{infos?.profile_name}</h2>
           </div>
         </div>
